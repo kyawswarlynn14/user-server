@@ -42,7 +42,7 @@ userSchema.methods.comparePassword = async function(enteredPassword) {
 // sign access token
 userSchema.methods.SignAccessToken = function () {
     return jwt.sign({id: this._id}, process.env.ACCESS_TOKEN, {
-        expiresIn: '30d',
+        expiresIn: process.env.TOKEN_EXPIRE,
     });
 };
 
